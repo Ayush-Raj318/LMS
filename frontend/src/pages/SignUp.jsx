@@ -9,8 +9,8 @@ import { serverUrl } from "../App";
 import { toast } from "react-toastify";
 import { ClipLoader } from "react-spinners";
 import { setUserData } from "../redux/userSlice";
-import { auth, provider } from "../utils/firebase";
 import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../../utils/firebase";
 
 function SignUp() {
   const [show, setShow] = useState(false);
