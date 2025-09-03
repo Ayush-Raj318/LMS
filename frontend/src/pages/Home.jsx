@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import ai from "../assets/ai.png";
 import ai1 from "../assets/searchAi.png";
 import Logos from "../components/Logos";
+import ExploreCourses from "../components/ExploreCourses";
 
 function Home() {
   const navigate = useNavigate();
@@ -52,6 +53,7 @@ function Home() {
     
       </div>
       <Logos />
+      <ExploreCourses />
     </div>
   );
 }
