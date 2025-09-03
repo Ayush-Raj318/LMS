@@ -7,7 +7,7 @@ function Profile() {
   const { userData } = useSelector((state) => state.user);
 
   const navigate = useNavigate();
-  
+
   return (
     <div className="min-h-screen bg-gray-100 px-4 py-10 flex items-center justify-center ">
       <div className="bg-white shadow-lg rounded-2xl p-8 max-w-xl w-full relative">

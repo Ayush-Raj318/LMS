@@ -10,7 +10,7 @@ const userRouter = express.Router();
 
 userRouter.get("/currentuser", isAuth, getCurrentUser);
 userRouter.post(
-  "/profile",
+  "/updateprofile",
   isAuth,
   upload.single("photoUrl"),
   updateProfile

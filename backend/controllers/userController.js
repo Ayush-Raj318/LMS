@@ -1,4 +1,5 @@
 import User from "../models/userModel.js";
+import uploadOnCloudinary from "../config/cloudinary.js";
 
 const getCurrentUser = async (req, res) => {
   try {
@@ -17,14 +18,22 @@ const updateProfile = async (req, res) => {
   try {
     const userId = req.userId;
     const { name, description } = req.body;
+
+    let photoUrl;
     if (req.file) {
-      const photoUrl = await uploadOnCloudinary(req.file.path);
+      photoUrl = await uploadOnCloudinary(req.file.path);
     }
-    const user = await User.findByIdAndUpdate(userId, {
-      name,
-      description,
-      photoUrl,
-    });
+
+    const update = {};
+    if (typeof name === "string" && name.trim() !== "") update.name = name;
+    if (typeof description === "string") update.description = description;
+    if (photoUrl) update.photoUrl = photoUrl;
+
+    const user = await User.findByIdAndUpdate(userId, update, {
+      new: true,
+      runValidators: true,
+    }).select("-password");
+
     if (!user) {
       return res.status(400).json({ message: "User does not exist" });
     }
