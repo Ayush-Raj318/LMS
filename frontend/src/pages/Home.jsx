@@ -7,6 +7,7 @@ import ai from "../assets/ai.png";
 import ai1 from "../assets/searchAi.png";
 import Logos from "../components/Logos";
 import ExploreCourses from "../components/ExploreCourses";
+import Cardspage from "../components/Cardspage";
 
 function Home() {
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ function Home() {
       </div>
       <Logos />
       <ExploreCourses />
+      <Cardspage />
     </div>
   );
 }
