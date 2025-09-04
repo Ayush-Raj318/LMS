@@ -11,12 +11,14 @@ const createCourse = async (req, res) => {
     }
     const course = await Course.create({
       title,
-      description,
+      category,
       creator: req.userId,
     });
     return res.status(201).json(course);
   } catch (error) {
-    return res.status(500).json({ message: `createCourse error ${error}` });
+    return res
+      .status(500)
+      .json({ message: `Error in creating course ${error}` });
   }
 };
 
@@ -123,4 +125,11 @@ const removeCourse = async (req, res) => {
   }
 };
 
-export { createCourse, getPublishedCourses, getCreatorCourses, editCourse, getCourseById, removeCourse };
+export {
+  createCourse,
+  getPublishedCourses,
+  getCreatorCourses,
+  editCourse,
+  getCourseById,
+  removeCourse,
+};

@@ -6,9 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { serverUrl } from "../../App";
 import { toast } from "react-toastify";
-import { setCreatorCourseData } from "../../redux/courseSlice";
+
 import img1 from "../../assets/empty.jpg";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { setCreatorCourseData } from "../../redux/courseSlice";
 
 function Courses() {
   let navigate = useNavigate();
@@ -19,10 +20,9 @@ function Courses() {
   useEffect(() => {
     const getCreatorData = async () => {
       try {
-        const result = await axios.get(
-          serverUrl + "/api/course/getcreatorcourses",
-          { withCredentials: true }
-        );
+        const result = await axios.get(serverUrl + "/api/course/getcreator", {
+          withCredentials: true,
+        });
 
         dispatch(setCreatorCourseData(result.data));
 
@@ -108,7 +108,7 @@ function Courses() {
                   <td className="py-3 px-4">
                     <FaEdit
                       className="text-gray-600 hover:text-blue-600 cursor-pointer"
-                      onClick={() => navigate(`/addcourses/${course?._id}`)}
+                      onClick={() => navigate(`/editcourse/${course?._id}`)}
                     />
                   </td>
                 </tr>
@@ -152,7 +152,7 @@ function Courses() {
                 </div>
                 <FaEdit
                   className="text-gray-600 hover:text-blue-600 cursor-pointer"
-                  onClick={() => navigate(`/addcourses/${course?._id}`)}
+                  onClick={() => navigate(`/editcourse/${course?._id}`)}
                 />
               </div>
               <span

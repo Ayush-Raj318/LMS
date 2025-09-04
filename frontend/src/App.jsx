@@ -5,7 +5,6 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import getCurrentUser from "./customHooks/getCurrentUser";
 import { useSelector } from "react-redux";
 import Profile from "./pages/Profile";
 import ForgetPassword from "./pages/ForgetPassword";
@@ -13,11 +12,14 @@ import EditProfile from "./pages/EditProfile";
 import Dashboard from "./pages/Educator/Dashboard";
 import Courses from "./pages/Educator/Courses";
 import CreateCourse from "./pages/Educator/CreateCourse";
-import AddCourses from "./pages/Educator/AddCourses";
+import EditCourse from "./pages/Educator/EditCourse";
+import getCurrentUser from "./customHooks/getCurrentUser";
+import getCreatorCourseData from "./customHooks/getCreatorCourseData";
 export const serverUrl = "http://localhost:8000";
 
 function App() {
   getCurrentUser();
+  getCreatorCourseData
   const { userData } = useSelector((state) => state.user);
   return (
     <>
@@ -59,10 +61,10 @@ function App() {
           }
         />
         <Route
-          path="/addcourses/:courseId"
+          path="/editcourse/:courseId"
           element={
             userData?.role === "educator" ? (
-              <AddCourses />
+              <EditCourse />
             ) : (
               <Navigate to={"/signup"} />
             )

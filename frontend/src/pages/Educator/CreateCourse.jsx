@@ -78,7 +78,7 @@ function CreateCourse() {
               <option value="UI UX Designing">UI UX Designing</option>
               <option value="Web Development">Web Development</option>
               <option value="Others">Others</option>
-            </select> 
+            </select>
           </div>
 
           {/* Submit Button */}
