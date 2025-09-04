@@ -1,4 +1,7 @@
 import express from "express";
+
+import isAuth from "../middlewares/isAuth.js";
+import upload from "../middlewares/multer.js";
 import {
   createCourse,
   editCourse,
@@ -6,9 +9,7 @@ import {
   getCreatorCourses,
   getPublishedCourses,
   removeCourse,
-} from "../controllers/courseController";
-import isAuth from "../middlewares/isAuth";
-import upload from "../middlewares/multer";
+} from "../controllers/courseController.js";
 
 const courseRouter = express.Router();
 
@@ -23,3 +24,5 @@ courseRouter.put(
 );
 courseRouter.get("/getcourse/:courseId", isAuth, getCourseById);
 courseRouter.delete("/remove/:courseId", isAuth, removeCourse);
+
+export default courseRouter;

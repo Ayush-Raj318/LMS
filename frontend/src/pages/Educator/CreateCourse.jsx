@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { serverUrl } from "../../App";
 import { toast } from "react-toastify";
 import { ClipLoader } from "react-spinners";
-const CreateCourse = () => {
+
+function CreateCourse() {
   let navigate = useNavigate();
-  
+
   let [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -77,7 +78,7 @@ const CreateCourse = () => {
               <option value="UI UX Designing">UI UX Designing</option>
               <option value="Web Development">Web Development</option>
               <option value="Others">Others</option>
-            </select>
+            </select> 
           </div>
 
           {/* Submit Button */}
@@ -93,6 +94,6 @@ const CreateCourse = () => {
       </div>
     </div>
   );
-};
+}
 
 export default CreateCourse;

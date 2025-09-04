@@ -24,7 +24,7 @@ function Courses() {
           { withCredentials: true }
         );
 
-        await dispatch(setCreatorCourseData(result.data));
+        dispatch(setCreatorCourseData(result.data));
 
         console.log(result.data);
       } catch (error) {

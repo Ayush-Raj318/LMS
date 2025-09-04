@@ -1,5 +1,5 @@
-import Course from "../models/courseModel";
-import uploadOnCloudinary from "../config/cloudinary";
+import Course from "../models/courseModel.js";
+import uploadOnCloudinary from "../config/cloudinary.js";
 
 const createCourse = async (req, res) => {
   try {
