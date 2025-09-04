@@ -76,8 +76,8 @@ function EditCourse() {
     formData.append("isPublished", isPublished);
 
     try {
-      const result = await axios.post(
-        `${serverUrl}/api/course/editcourse/${courseId}`,
+      const result = await axios.put(
+        `${serverUrl}/api/course/edit/${courseId}`,
         formData,
         { withCredentials: true }
       );
@@ -110,7 +110,7 @@ function EditCourse() {
     setLoading(true);
     try {
       const result = await axios.delete(
-        serverUrl + `/api/course/removecourse/${courseId}`,
+        serverUrl + `/api/course/remove/${courseId}`,
         { withCredentials: true }
       );
       toast.success("Course Deleted");
