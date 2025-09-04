@@ -16,13 +16,17 @@ import EditCourse from "./pages/Educator/EditCourse";
 import getCurrentUser from "./customHooks/getCurrentUser";
 import getCreatorCourseData from "./customHooks/getCreatorCourseData";
 import getPublishedCourse from "./customHooks/getPublishedCourse";
+import AllCourses from "./pages/AllCouses";
 export const serverUrl = "http://localhost:8000";
 
 function App() {
+  // Call hooks inside the component
   getCurrentUser();
   getCreatorCourseData();
   getPublishedCourse();
+  
   const { userData } = useSelector((state) => state.user);
+  
   return (
     <>
       <ToastContainer />
@@ -81,6 +85,10 @@ function App() {
               <Navigate to={"/signup"} />
             )
           }
+        />
+        <Route
+          path="/allcourses"
+          element={userData ? <AllCourses /> : <Navigate to={"/signup"} />}
         />
       </Routes>
     </>
