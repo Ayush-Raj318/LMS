@@ -8,7 +8,6 @@ import cors from "cors";
 import courseRouter from "./routes/courseRoute.js";
 import lectureRouter from "./routes/lecturRoute.js";
 
-
 dotenv.config();
 
 const port = process.env.PORT;
