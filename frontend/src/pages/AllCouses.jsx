@@ -7,12 +7,12 @@ import ai from "../assets/SearchAi.png";
 import { useSelector } from "react-redux";
 
 function AllCourses() {
-
+  
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const navigate = useNavigate();
   const [category, setCategory] = useState([]);
   const [filterCourses, setFilterCourses] = useState([]);
-  
+
   const { courseData } = useSelector((state) => state.course);
 
   const toggleCategory = (e) => {
