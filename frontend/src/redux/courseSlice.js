@@ -13,7 +13,7 @@ const courseSlice= createSlice({
         setCreatorCourseData:(state,action)=>{
         state.creatorCourseData = action.payload
         },
-        setCourseData:(state,action) => {
+        setCourseData:(state,action) => {   
             state.courseData = action.payload
         },
         setSelectedCourseData:(state,action) => {
