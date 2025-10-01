@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { serverUrl } from "../../App";
 import { setLectureData } from "../../redux/lectureSlice";
 import { toast } from "react-toastify";
@@ -11,7 +11,9 @@ import { ClipLoader } from "react-spinners";
 function EditLecture() {
   const [loading, setLoading] = useState(false);
   const [loading1, setLoading1] = useState(false);
-  const { courseId, lectureId } = useParams();
+  const { lectureId } = useParams();
+  const location = useLocation();
+  const courseId = location.state?.courseId;
   const { lectureData } = useSelector((state) => state.lecture);
   const dispatch = useDispatch();
   const selectedLecture = lectureData.find(

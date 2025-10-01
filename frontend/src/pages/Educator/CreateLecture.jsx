@@ -117,7 +117,11 @@ function CreateLecture() {
               </span>
               <FaEdit
                 className="text-gray-500 hover:text-gray-700 cursor-pointer"
-                onClick={() => navigate(`/editlecture/${lecture._id}`)}
+                onClick={() =>
+                  navigate(`/editlecture/${lecture._id}`, {
+                    state: { courseId },
+                  })
+                }
               />
             </div>
           ))}
