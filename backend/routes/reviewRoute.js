@@ -5,4 +5,6 @@ import { addReview, getCourseReviews } from "../controllers/reviewController.js"
 const reviewRouter = express.Router();
 
 reviewRouter.post("/createreview", isAuth, addReview);
-reviewRouter.get("/getreviews/:courseId", isAuth, getCourseReviews);
+reviewRouter.get("/getreview", getCourseReviews);
+
+export default reviewRouter;

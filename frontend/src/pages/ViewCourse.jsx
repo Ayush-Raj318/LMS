@@ -10,6 +10,7 @@ import axios from "axios";
 import { serverUrl } from "../App";
 import Card from "../components/Card";
 import { toast } from "react-toastify";
+import { ClipLoader } from "react-spinners";
 
 const ViewCourse = () => {
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ const ViewCourse = () => {
   const [isEnrolled, setIsEnrolled] = useState(false);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const fetchCourseData = async () => {
     courseData.map((course) => {
@@ -126,6 +128,25 @@ const ViewCourse = () => {
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong while enrolling");
+    }
+  };
+
+  const handleReview = async () => {
+    setLoading(true);
+    try {
+      const result = await axios.post(
+        serverUrl + "/api/review/createreview",
+        { rating, comment, courseId },
+        { withCredentials: true }
+      );
+      setLoading(false);
+      toast.success("Review added successfully");
+      console.log(result.data);
+      toast.success(result.data.message);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      toast.error(error.response.data.message);
     }
   };
 
@@ -301,12 +322,21 @@ const ViewCourse = () => {
               ))}
             </div>
             <textarea
+              onChange={(e) => setComment(e.target.value)}
               placeholder="Write your review here..."
               className="w-full border border-gray-300 rounded-lg p-2"
               rows={3}
             />
-            <button className="bg-black text-white mt-3 px-4 py-2 rounded hover:bg-gray-800">
-              Submit Review
+            <button
+              className="bg-black text-white mt-3 px-4 py-2 rounded hover:bg-gray-800"
+              disabled={loading}
+              onClick={handleReview}
+            >
+              {loading ? (
+                <ClipLoader size={30} color="white" />
+              ) : (
+                "Submit Review"
+              )}
             </button>
           </div>
           {/* Instructor Info */}
