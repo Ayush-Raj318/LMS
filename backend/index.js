@@ -7,6 +7,7 @@ import userRouter from "./routes/userRoute.js";
 import cors from "cors";
 import courseRouter from "./routes/courseRoute.js";
 import lectureRouter from "./routes/lecturRoute.js";
+import paymentRouter from "./routes/paymentRoute.js";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/course", courseRouter);
 app.use("/api/lecture", lectureRouter);
+app.use("/api/order", paymentRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
