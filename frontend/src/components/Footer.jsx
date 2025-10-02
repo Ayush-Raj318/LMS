@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo.jpg"; // replace with actual path
+import logo from "../assets/logo.jpg";
 
 const Footer = () => {
   let navigate = useNavigate();

@@ -46,7 +46,6 @@ function Dashboard() {
         onClick={() => navigate("/")}
       />
       <div className="w-full px-6 py-10   bg-gray-50 space-y-10">
-        
         {/* Welcome Section */}
         <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row items-center gap-6">
           <img

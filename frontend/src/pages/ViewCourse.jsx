@@ -23,6 +23,8 @@ const ViewCourse = () => {
   const [creatorCourses, setCreatorCourses] = useState([]);
   const { userData } = useSelector((state) => state.user);
   const [isEnrolled, setIsEnrolled] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
 
   const fetchCourseData = async () => {
     courseData.map((course) => {
@@ -289,7 +291,13 @@ const ViewCourse = () => {
           <div className="mb-4">
             <div className="flex gap-1 mb-2">
               {[1, 2, 3, 4, 5].map((star) => (
-                <FaStar key={star} className="text-yellow-500" />
+                <FaStar
+                  key={star}
+                  onClick={() => setRating(star)}
+                  className={
+                    star <= rating ? "fill-amber-300" : "fill-gray-300"
+                  }
+                />
               ))}
             </div>
             <textarea
