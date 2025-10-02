@@ -8,6 +8,8 @@ import ai1 from "../assets/searchAi.png";
 import Logos from "../components/Logos";
 import ExploreCourses from "../components/ExploreCourses";
 import Cardspage from "../components/Cardspage";
+import About from "../components/About";
+import Footer from "../components/Footer";
 
 function Home() {
   const navigate = useNavigate();
@@ -56,6 +58,8 @@ function Home() {
       <Logos />
       <ExploreCourses />
       <Cardspage />
+      <About />
+      <Footer />
     </div>
   );
 }

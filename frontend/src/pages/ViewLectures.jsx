@@ -26,7 +26,7 @@ function ViewLectures() {
           <h1 className="text-2xl font-bold flex items-center justify-start gap-[20px]  text-gray-800">
             <FaArrowLeftLong
               className=" text-black w-[22px] h-[22px] cursor-pointer"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/viewcourse/" + courseId)}
             />
             {selectedCourse?.title}
           </h1>

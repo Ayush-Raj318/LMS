@@ -22,6 +22,7 @@ import EditLecture from "./pages/Educator/EditLecture";
 import ViewCourse from "./pages/ViewCourse";
 import ScrollToTop from "./components/ScrollToTop";
 import ViewLectures from "./pages/ViewLectures";
+import EnrolledCourse from "./pages/EnrolledCourse";
 export const serverUrl = "http://localhost:8000";
 
 function App() {
@@ -124,6 +125,10 @@ function App() {
         <Route
           path="/viewlecture/:courseId"
           element={userData ? <ViewLectures /> : <Navigate to={"/signup"} />}
+        />
+        <Route
+          path="/enrolledcourses"
+          element={userData ? <EnrolledCourse /> : <Navigate to={"/signup"} />}
         />
 
       </Routes>
