@@ -11,6 +11,7 @@ import {
   removeCourse,
   getCreatorById,
 } from "../controllers/courseController.js";
+import searchWithAI from "../controllers/searchController.js";
 
 const courseRouter = express.Router();
 
@@ -26,5 +27,6 @@ courseRouter.put(
 courseRouter.get("/getcourse/:courseId", isAuth, getCourseById);
 courseRouter.delete("/remove/:courseId", isAuth, removeCourse);
 courseRouter.post("/creator", isAuth, getCreatorById);
+courseRouter.post("/search", searchWithAI);
 
 export default courseRouter;

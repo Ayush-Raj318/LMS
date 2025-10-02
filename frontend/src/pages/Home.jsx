@@ -39,7 +39,7 @@ function Home() {
           </button>
           <button
             className="px-[20px] py-[10px] lg:bg-white bg-black lg:text-black text-white rounded-[10px] text-[18px] font-light flex gap-2 cursor-pointer items-center justify-center"
-            onClick={() => navigate("/searchwithai")}
+            onClick={() => navigate("/search")}
           >
             Search with AI{" "}
             <img

@@ -24,6 +24,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import ViewLectures from "./pages/ViewLectures";
 import EnrolledCourse from "./pages/EnrolledCourse";
 import getAllReviews from "./customHooks/getAllReviews";
+import SearchWithAI from "./pages/SearchWithAI";
 export const serverUrl = "http://localhost:8000";
 
 function App() {
@@ -131,6 +132,10 @@ function App() {
         <Route
           path="/enrolledcourses"
           element={userData ? <EnrolledCourse /> : <Navigate to={"/signup"} />}
+        />
+        <Route
+          path="/search"
+          element={userData ? <SearchWithAI /> : <Navigate to={"/signup"} />}
         />
 
       </Routes>

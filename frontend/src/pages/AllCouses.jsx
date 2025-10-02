@@ -74,7 +74,7 @@ function AllCourses() {
         >
           <button
             className="px-[10px] py-[10px]  bg-black text-white  rounded-[10px] text-[15px] font-light flex items-center justify-center gap-2 cursor-pointer"
-            onClick={() => navigate("/searchwithai")}
+            onClick={() => navigate("/search")}
           >
             Search with AI{" "}
             <img src={ai} className="w-[30px] h-[30px] rounded-full" alt="" />
