@@ -8,7 +8,6 @@ function About() {
     <div className="w-[100vw] lg:h-[70vh] min-h-[50vh] flex flex-wrap items-center justify-center gap-2 mb-[30px]">
       <div className="lg:w-[40%] md:w-[80%] w-[100%] h-[100%] flex  items-center justify-center relative">
         <img src={about} className="w-[80%] h-[90%] rounded-lg " alt="" />
-     
       </div>
       <div className="lg:w-[50%] md:w-[70%] w-[100%] h-[100%] flex  items-start justify-center flex-col px-[35px] md:px-[80px]">
         <div className="flex text-[18px] items-center justify-center gap-[20px]">
