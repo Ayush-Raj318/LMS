@@ -142,13 +142,26 @@ const ViewCourse = () => {
       setLoading(false);
       toast.success("Review added successfully");
       console.log(result.data);
-      toast.success(result.data.message);
+      setRating(0);
+      setComment("");
     } catch (error) {
       console.log(error);
       setLoading(false);
       toast.error(error.response.data.message);
+      setRating(0);
+      setComment("");
     }
   };
+
+  const calculateAvgReview = (reviews) => {
+    if (!reviews || reviews.length === 0) return 0;
+    const total = reviews.reduce((sum, review) => sum + review.rating, 0);
+    return (total / reviews.length).toFixed(1);
+  };
+
+  const avgRating = calculateAvgReview(selectedCourseData?.reviews);
+
+  console.log("Average Rating", avgRating);
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -184,7 +197,8 @@ const ViewCourse = () => {
             <div className="flex items-start flex-col justify-between">
               <div className="text-yellow-500 font-medium flex gap-2">
                 <span className="flex items-center justify-start gap-1">
-                  <FaStar />5
+                  <FaStar />
+                  {avgRating}
                 </span>{" "}
                 <span className="text-gray-500">(1,200 Reviews)</span>
               </div>
@@ -323,6 +337,7 @@ const ViewCourse = () => {
             </div>
             <textarea
               onChange={(e) => setComment(e.target.value)}
+              value={comment}
               placeholder="Write your review here..."
               className="w-full border border-gray-300 rounded-lg p-2"
               rows={3}

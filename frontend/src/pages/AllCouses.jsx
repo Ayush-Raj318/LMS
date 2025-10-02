@@ -166,15 +166,15 @@ function AllCourses() {
 
       {/* Main Courses Section */}
       <main className="w-full transition-all duration-300 py-[130px] md:pl-[300px]  flex items-start justify-center md:justify-start flex-wrap gap-6 px-[10px]">
-        {filterCourses?.map((item, index) => (
+        {filterCourses?.map((course, index) => (
           <CourseCard
             key={index}
-            thumbnail={item.thumbnail}
-            title={item.title}
-            price={item.price}
-            category={item.category}
-            id={item._id}
-            reviews={item.reviews}
+            thumbnail={course.thumbnail}
+            title={course.title}
+            price={course.price}
+            category={course.category}
+            id={course._id}
+            reviews={course.reviews}
           />
         ))}
       </main>

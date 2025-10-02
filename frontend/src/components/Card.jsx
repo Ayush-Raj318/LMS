@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 function CourseCard({ thumbnail, title, category, price, id, reviews }) {
 
+  
+
   const navigate = useNavigate();
   const calculateAverageRating = (reviews) => {
     if (!reviews || reviews.length === 0) return 0;

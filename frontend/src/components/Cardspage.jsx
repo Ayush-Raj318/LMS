@@ -29,15 +29,15 @@ function Cardspage() {
 
       {/* Course Cards Grid */}
       <div className="w-full flex items-center justify-center flex-wrap gap-[30px] lg:p-[50px] md:p-[30px] p-[10px] mb-[20px]">
-        {popularCourses.map((item, index) => (
+        {popularCourses.map((course, index) => (
           <CourseCard
             key={index}
-            id={item._id}
-            thumbnail={item.thumbnail}
-            title={item.title}
-            price={item.price}
-            category={item.category}
-            reviews={item.reviews}
+            id={course._id}
+            thumbnail={course.thumbnail}
+            title={course.title}
+            price={course.price}
+            category={course.category}
+            reviews={course.reviews}
           />
         ))}
       </div>

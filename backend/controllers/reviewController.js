@@ -51,7 +51,7 @@ const getCourseReviews = async (req, res) => {
 const getAllReviews = async (req, res) => {
   try {
     const reviews = await Review.find({})
-      .populate("user", "name photoUrl role") // populating usename and photo
+      .populate("user course") // populating usename and photo
       .sort({ reviewedAt: -1 }); // optional, latest first
 
     return res.status(200).json(reviews);
